@@ -283,7 +283,7 @@
 
 // Define the correct username and password
 const validUsername = 'Asma';
-const validPassword = '';
+const validPassword = '0209';
 // Function to check login credentials
 function checkLogin() {
     const username = document.getElementById('username').value;
