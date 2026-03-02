@@ -47,12 +47,39 @@ body {
     flex: 1;
     min-width: 50%;
     background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
+    position: relative;
 }
 
 .image-container img {
     width: 100%;
     height: auto;
     display: block;
+}
+
+.next-button {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #9d4edd 0%, #6a4c93 100%);
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0px 4px 15px rgba(128, 0, 128, 0.4);
+    transition: all 0.3s ease;
+    border: 2px solid #ffd700;
+    cursor: pointer;
+    display: inline-block;
+    text-align: center;
+    z-index: 10;
+}
+
+.next-button:hover {
+    background: linear-gradient(135deg, #6a4c93 0%, #9d4edd 100%);
+    box-shadow: 0px 6px 20px rgba(255, 215, 0, 0.5);
+    transform: translateY(-2px);
 }
 
 .text-container {
@@ -129,4 +156,125 @@ body {
 #login button:hover {
     background: linear-gradient(135deg, #9d4edd 0%, #6a4c93 100%);
     box-shadow: 0px 0px 15px rgba(255, 215, 0, 0.5);
+}
+
+/* Mobile First - Téléphone (jusqu'à 480px) */
+@media only screen and (max-width: 480px) {
+    body {
+        padding: 10px;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        border-radius: 5px;
+        box-shadow: 0px 4px 15px rgba(128, 0, 128, 0.2);
+    }
+
+    .header {
+        padding: 15px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .image-container,
+    .text-container {
+        min-width: 100%;
+        flex: 1 1 auto;
+    }
+
+    .image-container {
+        max-height: 350px;
+        overflow: hidden;
+    }
+
+    .next-button {
+        bottom: 10px;
+        right: 10px;
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        border-radius: 20px;
+    }
+
+    .text-container {
+        padding: 15px;
+    }
+
+    .text-container p {
+        font-size: 1.1rem;
+    }
+}
+
+/* Tablette (481px à 768px) */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 750px;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .image-container,
+    .text-container {
+        min-width: 100%;
+    }
+
+    .next-button {
+        bottom: 12px;
+        right: 12px;
+        padding: 11px 18px;
+        font-size: 0.95rem;
+    }
+
+    .text-container p {
+        font-size: 1.3rem;
+    }
+}
+
+/* Écran desktop (769px et plus) */
+@media only screen and (min-width: 769px) {
+    body {
+        padding: 20px;
+    }
+
+    .container {
+        width: 80%;
+        max-width: 1000px;
+    }
+
+    .content {
+        flex-direction: row;
+    }
+
+    .image-container,
+    .text-container {
+        min-width: 50%;
+    }
+
+    .next-button {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
 }
