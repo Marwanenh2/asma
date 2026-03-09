@@ -29,6 +29,7 @@
     </header>
 
     <main class="container">
+        <div id="last-login" class="last-login" aria-live="polite"></div>
         <section class="hero">
             <div class="hero-text">
                 <h1>🧡 Le Château Enchanté</h1>
@@ -39,6 +40,7 @@
                 <img src="asma.jpg" alt="Asma Raiponce">
             </div>
         </section>
+
 
         <section class="content-wrapper">
             <div class="text-section">
@@ -54,6 +56,34 @@
     <footer class="footer">
         <p>© 2026 Asma – Un voyage magique vous attend.</p>
     </footer>
+
+    <script>
+        async function updateLastLogin() {
+            try {
+                const res = await fetch('/api/last-login', { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                const lastLogin = data.lastLogin;
+                if (!lastLogin) return;
+                const dt = new Date(lastLogin);
+                const formatted = dt.toLocaleString(undefined, {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                const el = document.getElementById('last-login');
+                if (el) {
+                    el.textContent = `Dernière connexion : ${formatted}`;
+                }
+            } catch {
+                // ignore
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateLastLogin);
+    </script>
 
 </body>
 

@@ -290,9 +290,30 @@ function checkLogin() {
     const password = document.getElementById('password').value;
 
     if (username === validUsername && password === validPassword) {
-        // mark as logged in and move to the next page
-        localStorage.setItem('asma_logged_in', 'true');
-        window.location.href = 'land.html';
+        const payload = { username, password };
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        })
+            .then(res => res.json())
+            .then((response) => {
+                if (response.success) {
+                    localStorage.setItem('asma_logged_in', 'true');
+                    const last = response.lastLogin || response.currentLogin;
+                    if (last) {
+                        localStorage.setItem('asma_last_login', last);
+                    }
+                    window.location.href = 'land.html';
+                } else {
+                    alert(response.message || 'Invalid username or password');
+                }
+            })
+            .catch(() => {
+                alert('Impossible de se connecter au serveur.');
+            });
     } else {
         alert('Invalid username or password');
     }

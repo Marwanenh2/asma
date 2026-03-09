@@ -20,6 +20,7 @@
 
 <body>
     <main class="container poem-only">
+        <div id="last-login" class="last-login" aria-live="polite"></div>
         <section class="poem-section">
             <div class="poem-content">
                 <h1>🌼 Lettre à Asma, la Belle aux Cheveux d'Or 🌼</h1>
@@ -58,6 +59,33 @@
         </section>
     </main>
 
+    <script>
+        async function updateLastLogin() {
+            try {
+                const res = await fetch('/api/last-login', { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                const lastLogin = data.lastLogin;
+                if (!lastLogin) return;
+                const dt = new Date(lastLogin);
+                const formatted = dt.toLocaleString(undefined, {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                const el = document.getElementById('last-login');
+                if (el) {
+                    el.textContent = `Dernière connexion : ${formatted}`;
+                }
+            } catch {
+                // ignore
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateLastLogin);
+    </script>
     <script src="poeme.js"></script>
 </body>
 
