@@ -44,31 +44,13 @@
         </section>
     </main>
 
+
     <footer class="footer">
         <p>© 2026 Asma – Rejoins la magie.</p>
-        <div id="last-login-info" style="font-size:0.9em;color:#888;"></div>
+        <div id="last-connection-info"></div>
     </footer>
-
-    <script src="login.js"></script>
-    <script>
-        async function fetchLastLogin() {
-            try {
-                const res = await fetch('/api/last-login');
-                const data = await res.json();
-                if (data.lastLogin && data.lastLogin.date) {
-                    const d = new Date(data.lastLogin.date);
-                    const ville = data.lastLogin.ville || 'Inconnu';
-                    const appareil = data.lastLogin.appareil || 'Inconnu';
-                    document.getElementById('last-login-info').textContent = `Dernière connexion : ${ville}, ${d.toLocaleString()} sur ${appareil}`;
-                } else {
-                    document.getElementById('last-login-info').textContent = 'Aucune connexion récente.';
-                }
-            } catch {
-                document.getElementById('last-login-info').textContent = 'Erreur récupération dernière connexion.';
-            }
-        }
-        fetchLastLogin();
-    </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
 </body>
 
 </html>
