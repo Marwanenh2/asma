@@ -69,11 +69,32 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 14px;
     padding: 18px 24px;
     backdrop-filter: blur(16px);
     background: rgba(24, 2, 30, 0.55);
     border-bottom: 1px solid rgba(255, 255, 255, 0.18);
     z-index: 10;
+}
+
+.header-link {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+    backdrop-filter: blur(10px);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.header-link:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-1px);
+}
+
+.header-link:active {
+    transform: translateY(0);
 }
 
 .page-header__brand {
