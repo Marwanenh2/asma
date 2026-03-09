@@ -10,6 +10,10 @@
 </head>
 
 <body>
+    <script>
+        // Force logout on visit to the login page, so the user must authenticate each time.
+        localStorage.removeItem('asma_logged_in');
+    </script>
     <div id="tank" aria-hidden="true"></div>
     <header class="topbar">
         <div class="brand">Asma</div>
