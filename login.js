@@ -1,6 +1,6 @@
 (function () {
     var myoptions, gui
-    const fishes = ["🐸 🐸 🐸 🐸", "🐸 🐸", "🐸 🐸", "🐸 🐸", "🐸 🐸 🐸 🐸 🐸"]
+    const fishes = ["✨ ✨ ✨ ✨", "🌙 🌙", "🦋 🦋", "🌟 🌟", "🧚 🧚 🧚"]
     var tank = document.getElementById("tank")
     var WINDOW_MIN
     const MIN_THRESHOLD = 650
@@ -290,7 +290,8 @@ function checkLogin() {
     const password = document.getElementById('password').value;
 
     if (username === validUsername && password === validPassword) {
-        //change page
+        // mark as logged in and move to the next page
+        localStorage.setItem('asma_logged_in', 'true');
         window.location.href = 'land.html';
     } else {
         alert('Invalid username or password');

@@ -9,7 +9,6 @@
 </head>
 
 <body>
-    <div class="debug-banner">✅ Interface chargée (Si tu ne vois pas, fais Ctrl+F5)</div>
     <header class="topbar">
         <div class="brand">Asma</div>
         <nav class="nav" aria-label="Main navigation">
@@ -18,63 +17,52 @@
             <a href="poeme.html" class="active">Poème</a>
         </nav>
     </header>
+    <script>
+        if (localStorage.getItem('asma_logged_in') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
 
     <main class="container">
-        <section class="hero">
-            <div class="hero-text">
-                <h1>Une lettre pour Asma</h1>
-                <p>Un souffle de couleurs, une atmosphère magique et un message qui vient du cœur.</p>
-                <a class="button" href="#lettre">Plonger dans la lettre</a>
-            </div>
-            <div class="hero-image">
+        <section class="poem-section">
+            <div class="poem-image">
                 <img src="asma.jpg" alt="Asma Raiponce Image">
             </div>
-        </section>
+            <div class="poem-content">
+                <h1>🌼 Lettre à Asma, la Belle aux Cheveux d'Or 🌼</h1>
+                <p>
+                    Je nous revois<br>
+                    au début de notre relation,<br>
+                    là où tout semblait simple.<br>
+                    <br>
+                    Depuis,<br>
+                    je ne cesse de penser à toi.<br>
+                    <br>
+                    Tu es si proche de moi,<br>
+                    et pourtant<br>
+                    je te sens loin.<br>
+                    <br>
+                    Je passe plus de temps<br>
+                    à penser à toi<br>
+                    qu’à parler avec toi.<br>
+                    <br>
+                    La manière<br>
+                    dont tu posais les yeux sur moi<br>
+                    ne me laissait pas indifférent.<br>
+                    <br>
+                    Je ne voyais pas ces instants avant,<br>
+                    et aujourd’hui<br>
+                    leur absence me manque.<br>
+                    <br>
+                    Mais aujourd’hui,<br>
+                    une lueur d’espoir traverse mon cœur<br>
+                    et me rappelle<br>
+                    que je ne peux pas te laisser partir.
+                </p>
 
-        <section id="lettre" class="content-wrapper">
-            <div class="text-section">
-                <strong>Bienvenue dans la tour enchantée.</strong><br>
-                Chaque mot est un pas de plus vers ton sourire.
+                <div class="visit-info" aria-live="polite"></div>
             </div>
-            <div class="image-section">
-                <img src="asma.jpg" alt="Asma Raiponce Image">
-            </div>
         </section>
-
-        <section class="headline-section">
-            <h1>🌼 Lettre à Asma, la Belle aux Cheveux d'Or 🌼</h1>
-            <p>
-                Je nous revois<br>
-                au début de notre relation,<br>
-                là où tout semblait simple.<br>
-                <br>
-                Depuis,<br>
-                je ne cesse de penser à toi.<br>
-                <br>
-                Tu es si proche de moi,<br>
-                et pourtant<br>
-                je te sens loin.<br>
-                <br>
-                Je passe plus de temps<br>
-                à penser à toi<br>
-                qu’à parler avec toi.<br>
-                <br>
-                La manière<br>
-                dont tu posais les yeux sur moi<br>
-                ne me laissait pas indifférent.<br>
-                <br>
-                Je ne voyais pas ces instants avant,<br>
-                et aujourd’hui<br>
-                leur absence me manque.<br>
-                <br>
-                Mais aujourd’hui,<br>
-                une lueur d’espoir traverse mon cœur<br>
-                et me rappelle<br>
-                que je ne peux pas te laisser partir.
-            </p>
-        </section>
-
-        <div class="visit-info" aria-live="polite"></div>
     </main>
 
     <footer class="footer">

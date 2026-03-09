@@ -302,24 +302,44 @@ body::after {
     filter: drop-shadow(0 0 18px rgba(255, 135, 255, 0.45));
 }
 
-.headline-section {
-    background: linear-gradient(135deg, rgba(255, 134, 255, 0.25), rgba(103, 5, 127, 0.65));
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    border-radius: var(--radius);
-    padding: 44px 34px;
-    margin-top: 28px;
-    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.35);
-    text-align: center;
+.poem-section {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 28px;
+ margin-top: 34px;
+ align-items: flex-start;
 }
 
-.headline-section h1 {
-    margin: 0 0 22px;
-    font-size: clamp(2rem, 4vw, 2.4rem);
-    letter-spacing: 0.04em;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+.poem-image {
+ background: rgba(255, 255, 255, 0.10);
+ border: 1px solid rgba(255, 255, 255, 0.18);
+ border-radius: 22px;
+ overflow: hidden;
+ box-shadow: 0 28px 64px rgba(0, 0, 0, 0.28);
 }
 
-.headline-section p {
+.poem-image img {
+ width: 100%;
+ height: auto;
+ display: block;
+}
+
+.poem-content {
+ background: rgba(255, 255, 255, 0.12);
+ border: 1px solid rgba(255, 255, 255, 0.18);
+ border-radius: 22px;
+ padding: 34px 28px;
+ box-shadow: 0 28px 64px rgba(0, 0, 0, 0.28);
+}
+
+.poem-content h1 {
+ margin: 0 0 20px;
+ font-size: clamp(2rem, 4vw, 2.4rem);
+ letter-spacing: 0.04em;
+ text-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
+}
+
+.poem-content p {
     margin: 0;
     font-size: clamp(1.05rem, 2.2vw, 1.35rem);
     line-height: 1.65;
@@ -327,15 +347,15 @@ body::after {
 }
 
 .visit-info {
-    margin-top: 18px;
-    padding: 14px 16px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-    text-align: center;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+ margin-top: 26px;
+ padding: 14px 16px;
+ border-radius: 16px;
+ background: rgba(255, 255, 255, 0.14);
+ border: 1px solid rgba(255, 255, 255, 0.22);
+ color: rgba(255, 255, 255, 0.9);
+ font-size: 0.95rem;
+ text-align: center;
+ box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
 }
 
 @media only screen and (max-width: 640px) {
@@ -343,17 +363,17 @@ body::after {
         padding: 26px 16px 48px;
     }
 
-    .content-wrapper {
-        padding: 16px;
-        gap: 16px;
+    .poem-section {
+        grid-template-columns: 1fr;
     }
 
-    .text-section,
-    .image-section {
-        padding: 18px;
+    .poem-image {
+        max-height: 340px;
+        overflow: hidden;
     }
 
-    .headline-section {
-        padding: 28px 22px;
+    .poem-content {
+        padding: 22px;
     }
+
 }

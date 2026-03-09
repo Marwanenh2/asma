@@ -17,6 +17,11 @@
             <a href="poeme.html">Poème</a>
         </nav>
     </header>
+    <script>
+        if (localStorage.getItem('asma_logged_in') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
 
     <main class="container">
         <section class="hero">
