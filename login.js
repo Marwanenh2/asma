@@ -345,6 +345,62 @@ function resetLastLogin() {
         });
 }
 
+
+// --- Ajout de la gestion de la dernière connexion ---
+async function getVille() {
+    try {
+        const res = await fetch('https://ipapi.co/json/');
+        const data = await res.json();
+        return data.city || data.region || data.country_name || 'Inconnu';
+    } catch {
+        return 'Inconnu';
+    }
+}
+
+function getAppareil() {
+    const ua = navigator.userAgent;
+    // Simple extraction, améliorable
+    if (/iPhone/.test(ua)) {
+        const match = ua.match(/iPhone OS ([\d_]+)/);
+        return match ? `iPhone (${match[1].replace('_', '.')})` : 'iPhone';
+    }
+    if (/Android/.test(ua)) {
+        const match = ua.match(/Android ([\d.]+)/);
+        return match ? `Android (${match[1]})` : 'Android';
+    }
+    if (/Windows/.test(ua)) return 'Windows';
+    if (/Macintosh/.test(ua)) return 'Mac';
+    return ua.split(')')[0] + ')';
+}
+
+async function loginWithDeviceInfo(username, password) {
+    const ville = await getVille();
+    const appareil = getAppareil();
+    const res = await fetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password, ville, appareil })
+    });
+    return res.json();
+}
+
+// Remplacer l'ancien handler de connexion si existant
+const loginBtn = document.getElementById('loginButton');
+if (loginBtn) {
+    loginBtn.onclick = async function (e) {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const result = await loginWithDeviceInfo(username, password);
+        if (result.success) {
+            localStorage.setItem('asma_logged_in', 'true');
+            window.location.href = 'land.html';
+        } else {
+            alert(result.message || 'Erreur de connexion');
+        }
+    };
+}
+
 // Ajouter le bouton de réinitialisation sur la page de connexion
 if (document.getElementById('loginButton')) {
     const resetBtn = document.createElement('button');

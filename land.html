@@ -33,7 +33,6 @@
     </header>
 
     <main class="container">
-        <div id="last-login" class="last-login" aria-live="polite"></div>
         <section class="hero">
             <div class="hero-text">
                 <h1>🧡 Le Château Enchanté</h1>
@@ -105,6 +104,29 @@
         }
 
         document.addEventListener('DOMContentLoaded', updateLastLogin);
+
+    </script>
+    <footer class="footer">
+        <div id="last-login-info" style="font-size:0.9em;color:#888;"></div>
+    </footer>
+    <script>
+        async function fetchLastLogin() {
+            try {
+                const res = await fetch('/api/last-login');
+                const data = await res.json();
+                if (data.lastLogin && data.lastLogin.date) {
+                    const d = new Date(data.lastLogin.date);
+                    const ville = data.lastLogin.ville || 'Inconnu';
+                    const appareil = data.lastLogin.appareil || 'Inconnu';
+                    document.getElementById('last-login-info').textContent = `Dernière connexion : ${ville}, ${d.toLocaleString()} sur ${appareil}`;
+                } else {
+                    document.getElementById('last-login-info').textContent = 'Aucune connexion récente.';
+                }
+            } catch {
+                document.getElementById('last-login-info').textContent = 'Erreur récupération dernière connexion.';
+            }
+        }
+        fetchLastLogin();
     </script>
 
 </body>

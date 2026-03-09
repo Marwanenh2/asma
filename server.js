@@ -19,6 +19,7 @@ const MIME_TYPES = {
   '.ico': 'image/x-icon',
 };
 
+
 function getLastLogin() {
   try {
     const raw = fs.readFileSync(LOGIN_FILE, 'utf8');
@@ -29,8 +30,8 @@ function getLastLogin() {
   }
 }
 
-function setLastLogin(isoString) {
-  const data = { lastLogin: isoString };
+function setLastLogin({ date, ville, appareil }) {
+  const data = { lastLogin: { date, ville, appareil } };
   fs.writeFileSync(LOGIN_FILE, JSON.stringify(data, null, 2), 'utf8');
 }
 
@@ -84,14 +85,14 @@ const server = http.createServer((req, res) => {
     req.on('end', () => {
       try {
         const payload = JSON.parse(body || '{}');
-        const { username, password } = payload;
+        const { username, password, ville, appareil } = payload;
         const validUsername = 'Asma';
         const validPassword = '0209';
         if (username === validUsername && password === validPassword) {
           const previousLogin = getLastLogin();
           const now = new Date().toISOString();
-          setLastLogin(now);
-          sendJson(res, { success: true, lastLogin: previousLogin, currentLogin: now });
+          setLastLogin({ date: now, ville, appareil });
+          sendJson(res, { success: true, lastLogin: previousLogin, currentLogin: { date: now, ville, appareil } });
         } else {
           sendJson(res, { success: false, message: 'Invalid username or password' }, 401);
         }
