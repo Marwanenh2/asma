@@ -47,9 +47,23 @@ body::after {
     z-index: -1;
 }
 
+.debug-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 14px;
+    background: rgba(0, 0, 0, 0.75);
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 700;
+    text-align: center;
+    z-index: 110;
+    font-size: 0.95rem;
+}
+
 .topbar {
     position: sticky;
-    top: 0;
+    top: 32px;
     z-index: 50;
     display: flex;
     align-items: center;
