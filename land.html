@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Château de Raiponce</title>
     <link rel="stylesheet" href="poeme_style.css">
-    <style>body{visibility:hidden;}</style>
+    <style>
+        body {
+            visibility: hidden;
+        }
+    </style>
     <script>
         if (localStorage.getItem('asma_logged_in') !== 'true') {
             window.location.href = 'index.html';
@@ -59,29 +63,41 @@
 
     <script>
         async function updateLastLogin() {
+            const defaultLastLogin = localStorage.getItem('asma_last_login');
+            let lastLogin = null;
             try {
-                const res = await fetch('/api/last-login', { cache: 'no-store' });
-                if (!res.ok) return;
+                const res = await fetch('https://api.countapi.xyz/get/asma-site/last-login', { cache: 'no-store' });
+                if (!res.ok) throw new Error('failed');
                 const data = await res.json();
-                const lastLogin = data.lastLogin;
-                if (!lastLogin) return;
-                const dt = new Date(lastLogin);
-                const formatted = dt.toLocaleString(undefined, {
-                    weekday: 'short',
-                    year: 'numeric',
-                    month: 'short',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                const el = document.getElementById('last-login');
-                if (el) {
-                    el.textContent = `Dernière connexion : ${formatted}`;
+                lastLogin = data.value;
+                if (lastLogin) {
+                    localStorage.setItem('asma_last_login', lastLogin);
                 }
             } catch {
-                // ignore
+                // ignore: fall back to local storage
+                lastLogin = defaultLastLogin;
             }
+            showLastLogin(lastLogin);
         }
+
+        function showLastLogin(lastLogin) {
+            const el = document.getElementById('last-login');
+            if (!lastLogin) {
+                el.textContent = "Première connexion ! Bienvenue.";
+                return;
+            }
+            const dt = new Date(Number(lastLogin));
+            const formatted = dt.toLocaleString(undefined, {
+                weekday: 'short',
+                year: 'numeric',
+                month: 'short',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+            el.textContent = `Dernière connexion sur un autre appareil : ${formatted}`;
+        }
+
         document.addEventListener('DOMContentLoaded', updateLastLogin);
     </script>
 

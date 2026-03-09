@@ -1,25 +1,11 @@
 # Asma - Site Web
 
-Ce dépôt contient un site web statique (HTML/CSS/JS) avec une **authentification simple** et une **horodatation globale de la dernière connexion** (partagée entre appareils) via un petit serveur Node.js.
+Ce dépôt contient un site web statique (HTML/CSS/JS) avec une **authentification simple** et une **horodatation globale de la dernière connexion** (partagée entre appareils).
 
-## 🚀 Démarrer le serveur (Node.js requis)
+## 🚀 Ouvrir le site
 
-1. **Installer Node.js**
-   - Téléchargez et installez Node.js (version LTS) depuis : https://nodejs.org/
-   - Vérifiez l'installation :
-     ```bash
-     node --version
-     ```
-
-2. **Lancer le serveur**
-   - Ouvrez un terminal à la racine du projet (où se trouve `server.js`)
-   - Exécutez :
-     ```bash
-     node server.js
-     ```
-
-3. **Ouvrir le site**
-   - Allez sur : http://localhost:3000/
+1. Ouvre `index.html` dans un navigateur.
+2. Si tu veux éviter des problèmes de CORS ou d'accès à des fichiers locaux, tu peux utiliser une extension comme **Live Server** (VS Code) ou démarrer un serveur simple (`python -m http.server` si Python est disponible).
 
 ## 🔐 Identifiants de connexion
 
@@ -28,14 +14,12 @@ Ce dépôt contient un site web statique (HTML/CSS/JS) avec une **authentificati
 
 ## 🕒 Fonctionnalité "Dernière connexion" globale
 
-- La première connexion stocke l'heure dans `last-login.json`.
-- Les autres appareils lisent cette valeur partagée et l'affichent.
+- La dernière connexion est partagée entre appareils via le service public `countapi.xyz`.
+- Quand quelqu'un se connecte, l’heure est mise à jour pour tout le monde.
 
 ## 🧩 Structure des fichiers
 
 - `index.html` – page de connexion
 - `land.html` – page principale protégée
 - `poeme.html` – page du poème protégée
-- `login.js` – logique de connexion + anim
-- `server.js` – serveur Node.js (API + fichiers statiques)
-- `last-login.json` – stockage de la dernière connexion
+- `login.js` – logique de connexion + mise à jour du temps de connexion
