@@ -6,81 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Château de Raiponce</title>
     <link rel="stylesheet" href="Asma_style.css">
-    <style>
-        body {
-            visibility: hidden;
-        }
-    </style>
-    <script>
-        if (localStorage.getItem('asma_logged_in') !== 'true') {
-            window.location.href = 'index.html';
-        } else {
-            document.addEventListener('DOMContentLoaded', () => {
-                document.body.style.visibility = 'visible';
-            });
-        }
-    </script>
 </head>
 
 <body>
-    <header class="topbar">
-        <div class="brand">Asma</div>
-        <nav class="nav" aria-label="Main navigation">
-            <a href="index.html">Connexion</a>
-            <a href="land.html" class="active">Château</a>
-            <a href="poeme.html">Poème</a>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="hero">
-            <div class="hero-text">
-                <h1>🧡 Le Château Enchanté</h1>
-                <p>Découvrez les légendes de la tour dorée de Raiponce et plongez dans la magie.</p>
-                <a class="button" href="poeme.html">Lire le Poème</a>
-            </div>
-            <div class="hero-image">
+    <div class="container">
+        <div class="header">
+            <h1>Bienvenue dans le Château de Raiponce</h1>
+            <p>Découvrez les légendes de la tour dorée de Raiponce</p>
+        </div>
+        <div class="content">
+            <div class="image-container">
                 <img src="asma.jpg" alt="Asma Raiponce">
+                <a href="poeme.html" class="next-button">Lire le Poème →</a>
             </div>
-        </section>
-
-
-        <section class="content-wrapper">
-            <div class="text-section">
-                <strong>Explorez la tour</strong><br>
-                Cliquez sur le bouton pour traverser la porte enchantée et lire la lettre dédiée à Asma.
+            <div class="text-container">
+                <p>Explorez la magie et la beauté de la tour dorée.</p>
+                <div class="circle" onclick="window.location.href='poeme.html';"></div>
             </div>
-            <div class="image-section">
-                <img src="asma.jpg" alt="Asma Raiponce">
-            </div>
-        </section>
-    </main>
-
-
-    <footer class="footer">
-        <p>© 2026 Asma – Un voyage magique vous attend.</p>
-        <div id="last-login-info" style="font-size:0.9em;color:#888;"></div>
-    </footer>
-    <script>
-        async function fetchLastLogin() {
-            try {
-                const res = await fetch('/api/last-login');
-                const data = await res.json();
-                if (data.lastLogin && data.lastLogin.date) {
-                    const d = new Date(data.lastLogin.date);
-                    const ville = data.lastLogin.ville || 'Inconnu';
-                    const appareil = data.lastLogin.appareil || 'Inconnu';
-                    document.getElementById('last-login-info').textContent = `Dernière connexion : ${ville}, ${d.toLocaleString()} sur ${appareil}`;
-                } else {
-                    document.getElementById('last-login-info').textContent = 'Aucune connexion récente.';
-                }
-            } catch {
-                document.getElementById('last-login-info').textContent = 'Erreur récupération dernière connexion.';
-            }
-        }
-        fetchLastLogin();
-    </script>
-
+        </div>
+    </div>
 </body>
 
 </html>

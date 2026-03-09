@@ -4,86 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lettre à Asma</title>
+    <title>Lettre à Raiponce</title>
     <link rel="stylesheet" href="Asma_style.css">
-    <style>
-        body {
-            visibility: hidden;
-        }
-    </style>
-    <script>
-        if (localStorage.getItem('asma_logged_in') !== 'true') {
-            window.location.href = 'index.html';
-        } else {
-            document.addEventListener('DOMContentLoaded', () => {
-                document.body.style.visibility = 'visible';
-            });
-        }
-    </script>
 </head>
 
 <body>
-    <main class="container poem-only">
-        <section class="poem-section">
-            <div class="poem-content">
-                <h1>🌼 Lettre à Asma, la Belle aux Cheveux d'Or 🌼</h1>
-                <p>
-                    Je nous revois<br>
-                    au début de notre relation,<br>
-                    là où tout semblait simple.<br>
-                    <br>
-                    Depuis,<br>
-                    je ne cesse de penser à toi.<br>
-                    <br>
-                    Tu es si proche de moi,<br>
-                    et pourtant<br>
-                    je te sens loin.<br>
-                    <br>
-                    Je passe plus de temps<br>
-                    à penser à toi<br>
-                    qu’à parler avec toi.<br>
-                    <br>
-                    La manière<br>
-                    dont tu posais les yeux sur moi<br>
-                    ne me laissait pas indifférent.<br>
-                    <br>
-                    Je ne voyais pas ces instants avant,<br>
-                    et aujourd’hui<br>
-                    leur absence me manque.<br>
-                    <br>
-                    Mais aujourd’hui,<br>
-                    une lueur d’espoir traverse mon cœur<br>
-                    et me rappelle<br>
-                    que je ne peux pas te laisser partir.
-                </p>
-
-                <div class="visit-info" aria-live="polite"></div>
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="text-section">
+                Découvrez l'univers féérique de la tour dorée aujourd'hui.
             </div>
-        </section>
-    </main>
-
-    <footer class="footer">
-        <div id="last-login-info" style="font-size:0.9em;color:#888;"></div>
-    </footer>
-    <script>
-        async function fetchLastLogin() {
-            try {
-                const res = await fetch('/api/last-login');
-                const data = await res.json();
-                if (data.lastLogin && data.lastLogin.date) {
-                    const d = new Date(data.lastLogin.date);
-                    const ville = data.lastLogin.ville || 'Inconnu';
-                    const appareil = data.lastLogin.appareil || 'Inconnu';
-                    document.getElementById('last-login-info').textContent = `Dernière connexion : ${ville}, ${d.toLocaleString()} sur ${appareil}`;
-                } else {
-                    document.getElementById('last-login-info').textContent = 'Aucune connexion récente.';
-                }
-            } catch {
-                document.getElementById('last-login-info').textContent = 'Erreur récupération dernière connexion.';
-            }
-        }
-        fetchLastLogin();
-    </script>
+            <div class="image-section">
+                <img src="asma.jpg" alt="Asma Raiponce Image">
+            </div>
+        </div>
+        <div class="headline-section">
+            <h1>🌼 Lettre à Asma, la Belle aux Cheveux d'Or 🌼</h1>
+            <p>
+                Je nous revois<br>
+                au début de notre relation,<br>
+                là où tout semblait simple.<br>
+                <br>
+                Depuis,<br>
+                je ne cesse de penser à toi.<br>
+                <br>
+                Tu es si proche de moi,<br>
+                et pourtant<br>
+                je te sens loin.<br>
+                <br>
+                Je passe plus de temps<br>
+                à penser à toi<br>
+                qu’à parler avec toi.<br>
+                <br>
+                La manière<br>
+                dont tu posais les yeux sur moi<br>
+                ne me laissait pas indifférent.<br>
+                <br>
+                Je ne voyais pas ces instants avant,<br>
+                et aujourd’hui<br>
+                leur absence me manque.<br>
+                <br>
+                Mais aujourd’hui,<br>
+                une lueur d’espoir traverse mon cœur<br>
+                et me rappelle<br>
+                que je ne peux pas te laisser partir.
+            </p>
+        </div>
+    </div>
     <script src="poeme.js"></script>
 </body>
 

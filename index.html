@@ -10,47 +10,16 @@
 </head>
 
 <body>
-    <script>
-        // Force logout on visit to the login page, so the user must authenticate each time.
-        localStorage.removeItem('asma_logged_in');
-    </script>
-    <div id="tank" aria-hidden="true"></div>
-    <header class="topbar">
-        <div class="brand">Asma</div>
-        <nav class="nav" aria-label="Main navigation">
-            <a href="index.html" class="active">Connexion</a>
-            <a href="land.html">Château</a>
-            <a href="poeme.html">Poème</a>
-        </nav>
-    </header>
-
-    <main class="container">
-        <section class="login-panel" aria-label="Login form">
-            <h2>Bienvenue</h2>
-            <p>Connectez-vous pour explorer la tour enchantée.</p>
-
-            <label class="input-label">
-                <span>Nom d'utilisateur</span>
-                <input type="text" id="username" placeholder="Username" required>
-            </label>
-
-            <label class="input-label">
-                <span>Mot de passe</span>
-                <input type="password" id="password" placeholder="Password" required>
-            </label>
-
-            <button id="loginButton" class="button">Connexion</button>
-            <p class="login-foot">Encore une fois ?</p>
-        </section>
-    </main>
-
-
-    <footer class="footer">
-        <p>© 2026 Asma – Rejoins la magie.</p>
-        <div id="last-connection-info"></div>
-    </footer>
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js"></script>
+    <div id="tank"></div>
+    <div id="login">
+        <h2>Connectez-vous à la tour de Raiponce</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <br>
+        <input type="password" id="password" placeholder="Password" required>
+        <br>
+        <button id="loginButton">Login</button>
+    </div>
+    <script src="login.js"></script>
 </body>
 
 </html>
