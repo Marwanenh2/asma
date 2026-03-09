@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Château de Raiponce</title>
     <link rel="stylesheet" href="poeme_style.css">
+    <script>
+        if (localStorage.getItem('asma_logged_in') !== 'true') {
+            window.location.href = 'index.html';
+        }
+    </script>
 </head>
 
 <body>
@@ -17,11 +22,6 @@
             <a href="poeme.html">Poème</a>
         </nav>
     </header>
-    <script>
-        if (localStorage.getItem('asma_logged_in') !== 'true') {
-            window.location.href = 'index.html';
-        }
-    </script>
 
     <main class="container">
         <section class="hero">
