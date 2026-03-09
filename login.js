@@ -179,7 +179,7 @@
                 myoptions.SingleFishOnly = true
                 myoptions.ColorChanging = false
                 myoptions.FishSpecies = "👸 👸 👸"
-                setGUI("FishSpecies", "� 👸 👸")
+                setGUI("FishSpecies", " 👸 👸")
                 setGUI("SingleFishOnly", true)
                 setGUI("ColorChanging", false)
                 break
@@ -188,8 +188,8 @@
                 myoptions.SingleFishOnly = true
                 myoptions.ColorChanging = true
                 myoptions.SwimSpeed = "Slow"
-                myoptions.FishSpecies = "�"
-                setGUI("FishSpecies", "�")
+                myoptions.FishSpecies = ""
+                setGUI("FishSpecies", "")
                 setGUI("SingleFishOnly", true)
                 setGUI("ColorChanging", true)
                 break
@@ -221,8 +221,8 @@
                 myoptions.SingleFishOnly = true
                 myoptions.ColorChanging = false
                 myoptions.SwimSpeed = "Fast"
-                myoptions.FishSpecies = "�"
-                setGUI("FishSpecies", "�")
+                myoptions.FishSpecies = ""
+                setGUI("FishSpecies", "")
                 setGUI("SingleFishOnly", true)
                 setGUI("ColorChanging", false)
                 break
@@ -330,3 +330,27 @@ function checkLogin() {
 
 // Add event listener to the login button
 document.getElementById('loginButton').addEventListener('click', checkLogin);
+
+// Réinitialiser la dernière connexion globale
+function resetLastLogin() {
+    fetch('https://api.countapi.xyz/set/asma-site/last-login?value=', { method: 'GET' })
+        .then(() => {
+            localStorage.removeItem('asma_last_login');
+            alert('La dernière connexion a été réinitialisée sur tous les appareils.');
+            // Optionnel : rafraîchir la page
+            window.location.reload();
+        })
+        .catch(() => {
+            alert('Erreur lors de la réinitialisation.');
+        });
+}
+
+// Ajouter le bouton de réinitialisation sur la page de connexion
+if (document.getElementById('loginButton')) {
+    const resetBtn = document.createElement('button');
+    resetBtn.textContent = 'Réinitialiser les connexions';
+    resetBtn.className = 'button';
+    resetBtn.style.marginTop = '10px';
+    resetBtn.onclick = resetLastLogin;
+    document.getElementById('loginButton').parentNode.appendChild(resetBtn);
+}
