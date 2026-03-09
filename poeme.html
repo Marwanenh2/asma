@@ -97,7 +97,13 @@
                 hour: '2-digit',
                 minute: '2-digit'
             });
-            el.textContent = `Dernière connexion sur un autre appareil : ${formatted}`;
+            const now = Date.now();
+            const diff = now - Number(lastLogin);
+            if (diff < 10 * 60 * 1000) {
+                el.textContent = `Quelqu'un s'est connecté récemment ! (${formatted})`;
+            } else {
+                el.textContent = `Dernière connexion sur un autre appareil : ${formatted}`;
+            }
         }
 
         document.addEventListener('DOMContentLoaded', updateLastLogin);
