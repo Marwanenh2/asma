@@ -287,46 +287,6 @@ const validPassword = '0209';
 
 // Shared store for the last login across devices (uses countapi.xyz)
 const LAST_LOGIN_BASE = 'https://api.countapi.xyz';
-const LAST_LOGIN_NAMESPACE = 'asma-site';
-const LAST_LOGIN_KEY = 'last-login';
-
-// Function to check login credentials
-function checkLogin() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username === validUsername && password === validPassword) {
-        const now = Date.now();
-        const getUrl = `${LAST_LOGIN_BASE}/get/${LAST_LOGIN_NAMESPACE}/${LAST_LOGIN_KEY}`;
-        const setUrl = `${LAST_LOGIN_BASE}/set/${LAST_LOGIN_NAMESPACE}/${LAST_LOGIN_KEY}?value=${now}`;
-
-        // Read the current global last-login (to know what previous session was), then update it.
-        fetch(getUrl)
-            .then(res => res.ok ? res.json() : { value: 0 })
-            .then((data) => {
-                const prevGlobal = Number(data.value) || null;
-                return fetch(setUrl).then(res => res.json()).then(() => prevGlobal);
-            })
-            .then((prevGlobal) => {
-                localStorage.setItem('asma_logged_in', 'true');
-                localStorage.setItem('asma_last_login_local', now);
-                localStorage.setItem('asma_last_login', now);
-                if (prevGlobal) {
-                    localStorage.setItem('asma_last_login_global_prev', prevGlobal);
-                }
-                window.location.href = 'land.html';
-            })
-            .catch(() => {
-                // If the shared store fails, still allow login and store locally.
-                localStorage.setItem('asma_logged_in', 'true');
-                localStorage.setItem('asma_last_login_local', now);
-                localStorage.setItem('asma_last_login', now);
-                window.location.href = 'land.html';
-            });
-    } else {
-        alert('Invalid username or password');
-    }
-}
 
 // Add event listener to the login button
 document.getElementById('loginButton').addEventListener('click', checkLogin);

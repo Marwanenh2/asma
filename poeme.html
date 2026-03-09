@@ -62,52 +62,6 @@
         </section>
     </main>
 
-    <script>
-        async function updateLastLogin() {
-            const defaultLastLogin = localStorage.getItem('asma_last_login');
-            let lastLogin = null;
-            try {
-                const res = await fetch('https://api.countapi.xyz/get/asma-site/last-login', { cache: 'no-store' });
-                if (!res.ok) throw new Error('failed');
-                const data = await res.json();
-                lastLogin = data.value;
-                if (lastLogin) {
-                    localStorage.setItem('asma_last_login', lastLogin);
-                }
-            } catch {
-                // ignore: fall back to local storage
-                lastLogin = defaultLastLogin;
-            }
-            showLastLogin(lastLogin);
-        }
-
-        function showLastLogin(lastLogin) {
-            const el = document.getElementById('last-login');
-            if (!lastLogin) {
-                el.textContent = "Première connexion ! Bienvenue.";
-                return;
-            }
-            const dt = new Date(Number(lastLogin));
-            const formatted = dt.toLocaleString(undefined, {
-                weekday: 'short',
-                year: 'numeric',
-                month: 'short',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit'
-            });
-            const now = Date.now();
-            const diff = now - Number(lastLogin);
-            if (diff < 10 * 60 * 1000) {
-                el.textContent = `Quelqu'un s'est connecté récemment ! (${formatted})`;
-            } else {
-                el.textContent = `Dernière connexion sur un autre appareil : ${formatted}`;
-            }
-        }
-
-        document.addEventListener('DOMContentLoaded', updateLastLogin);
-    </script>
-    </script>
     <footer class="footer">
         <div id="last-login-info" style="font-size:0.9em;color:#888;"></div>
     </footer>
