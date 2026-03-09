@@ -9,16 +9,37 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="content-wrapper">
+    <header class="topbar">
+        <div class="brand">Asma</div>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="index.html">Connexion</a>
+            <a href="land.html">Château</a>
+            <a href="poeme.html" class="active">Poème</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Bienvenue dans l'univers enchanté</h1>
+                <p>Un esprit doux, des couleurs scintillantes et des mots qui viennent du cœur.</p>
+                <a class="button" href="#lettre">Lire la lettre</a>
+            </div>
+            <div class="hero-image">
+                <img src="asma.jpg" alt="Asma Raiponce Image">
+            </div>
+        </section>
+
+        <section id="lettre" class="content-wrapper">
             <div class="text-section">
                 Découvrez l'univers féérique de la tour dorée aujourd'hui.
             </div>
             <div class="image-section">
                 <img src="asma.jpg" alt="Asma Raiponce Image">
             </div>
-        </div>
-        <div class="headline-section">
+        </section>
+
+        <section class="headline-section">
             <h1>🌼 Lettre à Asma, la Belle aux Cheveux d'Or 🌼</h1>
             <p>
                 Je nous revois<br>
@@ -49,9 +70,14 @@
                 et me rappelle<br>
                 que je ne peux pas te laisser partir.
             </p>
-        </div>
+        </section>
+
         <div class="visit-info" aria-live="polite"></div>
-    </div>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Asma – Un petit geste que je voulais partager.</p>
+    </footer>
 
     <script src="poeme.js"></script>
 </body>

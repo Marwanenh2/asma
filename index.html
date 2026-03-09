@@ -5,22 +5,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Raiponce - Connexion</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="poeme_style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dat-gui/0.7.9/dat.gui.min.js"></script>
-    <!-- Include dat.GUI library -->
 </head>
 
 <body>
-    <div id="tank"></div>
-    <div id="login">
+    <div id="tank" aria-hidden="true"></div>
+    <header class="topbar">
+        <div class="brand">Asma</div>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="index.html" class="active">Connexion</a>
+            <a href="land.html">Château</a>
+            <a href="poeme.html">Poème</a>
+        </nav>
+    </header>
 
-        <h2>Connectez-vous à la tour de Raiponce</h2>
-        <input type="text" id="username" placeholder="Username" required>
-        <br>
-        <input type="password" id="password" placeholder="Password" required>
-        <br>
-        <button id="loginButton">Login</button>
-    </div>
+    <main class="container">
+        <section class="login-panel" aria-label="Login form">
+            <h2>Bienvenue</h2>
+            <p>Connectez-vous pour explorer la tour enchantée.</p>
+
+            <label class="input-label">
+                <span>Nom d'utilisateur</span>
+                <input type="text" id="username" placeholder="Username" required>
+            </label>
+
+            <label class="input-label">
+                <span>Mot de passe</span>
+                <input type="password" id="password" placeholder="Password" required>
+            </label>
+
+            <button id="loginButton" class="button">Connexion</button>
+            <p class="login-foot">Encore une fois ?</p>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Asma – Rejoins la magie.</p>
+    </footer>
 
     <script src="login.js"></script>
 </body>
