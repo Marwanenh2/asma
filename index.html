@@ -3,12 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0;url=login.html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Château Asma - Accueil</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-    <p>Redirection vers la page de connexion...</p>
+<body class="castle-bg">
+    <div class="castle-container" style="padding-top:48px;">
+        <img src="asma.jpg" alt="Asma" class="castle-img" style="max-width:260px;">
+        <h1 style="margin-bottom:32px; color:#b721ff;">Bienvenue au Château Asma</h1>
+        <form id="loginForm"
+            style="display:flex; flex-direction:column; align-items:center; gap:18px; margin-top:18px; width:100%; max-width:320px; margin-left:auto; margin-right:auto;">
+            <input type="text" id="username" placeholder="Nom d'utilisateur" required
+                style="padding:13px; border-radius:12px; border:1.5px solid #b721ff44; font-size:1.07em; background:#f7f7faee; width:100%; box-shadow:0 1px 6px #b721ff11;">
+            <input type="password" id="password" placeholder="Mot de passe" required
+                style="padding:13px; border-radius:12px; border:1.5px solid #b721ff44; font-size:1.07em; background:#f7f7faee; width:100%; box-shadow:0 1px 6px #b721ff11;">
+            <button type="submit" class="btn-poeme" style="width:100%;">Se connecter</button>
+        </form>
+        <div id="loginError" class="error-message"
+            style="color:#d32f2f; margin-top:12px; min-height:20px; font-size:0.98em;"></div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const errorDiv = document.getElementById('loginError');
+            if (username === 'Asma' && password === '0209') {
+                window.location.href = 'land.html';
+            } else {
+                errorDiv.textContent = 'Identifiants incorrects. Réessayez.';
+            }
+        });
+    </script>
 </body>
 
 </html>

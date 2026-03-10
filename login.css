@@ -23,6 +23,7 @@ overflow: hidden;
 }
 }
 
+/* Closing brace removed to fix syntax */
 .login-container h1 {
     color: #b721ff;
     margin-bottom: 28px;
@@ -35,7 +36,7 @@ width: 100%;
 #loginForm input {
     width: 90%;
     padding: 13px;
-    margin: 12px 0;
+    /* Closing brace removed to fix syntax */
     border: 1.5px solid #b721ff44;
     border-radius: 12px;
     font-size: 1.07em;
@@ -58,7 +59,7 @@ position: absolute;
     background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
     color: #fff;
     border: none;
-    border-radius: 12px;
+    /* Closing brace removed to fix syntax */
     font-size: 1.13em;
     font-weight: bold;
     cursor: pointer;

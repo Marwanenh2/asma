@@ -14,158 +14,29 @@
         initializeTank()
     })
     tank.addEventListener("click", () => {
-        gui.closed ? gui.open() : gui.close()
-    })
 
-
-    /*Fish functions*/
-    function initializeTank() {
-        WINDOW_MIN = Math.min(tank.clientHeight, tank.clientWidth)
-        generateFishTank()
-        if (WINDOW_MIN <= MIN_THRESHOLD) {
-            gui.close()
-
-            document.addEventListener('DOMContentLoaded', function () {
-                const form = document.getElementById('loginForm');
-                const errorDiv = document.getElementById('loginError');
-                form.addEventListener('submit', function (e) {
-                    e.preventDefault();
-                    const username = document.getElementById('username').value.trim();
-                    const password = document.getElementById('password').value.trim();
-                    // Simple login: username = asma, password = chateau
-                    if (username === 'asma' && password === 'chateau') {
-                        window.location.href = 'land.html';
-                    } else {
-                        errorDiv.textContent = 'Identifiants incorrects. Réessayez.';
-                    }
-                });
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('loginForm');
+            const errorDiv = document.getElementById('loginError');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                const username = document.getElementById('username').value.trim();
+                const password = document.getElementById('password').value.trim();
+                // Simple login: username = asma, password = chateau
+                if (username === 'asma' && password === 'chateau') {
+                    window.location.href = 'land.html';
+                } else {
+                    errorDiv.textContent = 'Identifiants incorrects. Réessayez.';
+                }
             });
-            fish.style.transform = `translateX(${translateX}px) translateY(${translateY}px)`
-            let easing = Math.random() > .5 ? "ease" : "ease-in-out"
-            fish.style.transition = `all ${nextCall}ms ${easing}`
-        }
-    })
-
-}
-
-    function generateFish(pos, hueShift, size, icon) {
-    let htm = `<div class="direction">${icon}</div>`
-    let f = document.createElement("div")
-    f.setAttribute("class", "fish")
-    f.style.filter = `hue-rotate(${hueShift}deg)`
-    f.style.left = `${pos[0]}%`
-    f.style.top = `${pos[1]}%`
-    f.style.fontSize = `${size}px`
-    f.innerHTML = htm
-    return f
-}
-
-/*DAT.GUI表示*/
-function Options() {
-
-    this.Presets = "Ocean Mix"
-    this.NumFishGroups = "20"
-    this.SingleFishOnly = false;
-    this.MaxPerSchool = "6";
-    this.ColorChanging = true;
-    this.PercentSchools = "25";
-    this.SwimSpeed = "Moderate"
-    this.FishSpecies = "👸 👸 👸 👸"
-}
-
-function generateControls() {
-    myoptions = new Options();
-    gui = new dat.GUI();
-    gui.add(myoptions, "Presets", ["Ocean Mix", "Tropical Seas", "Schools", "Coral Reef", "Salmon Run", "Deep Water"]).onChange(setPreset);
-    gui.add(myoptions, "NumFishGroups").listen().onChange(setValue)
-    gui.add(myoptions, "SingleFishOnly").listen().onChange(setValue)
-    gui.add(myoptions, "MaxPerSchool").listen().onChange(setValue)
-    gui.add(myoptions, "PercentSchools").listen().onChange(setValue)
-    gui.add(myoptions, "ColorChanging").listen().onChange(setValue)
-    gui.add(myoptions, "SwimSpeed", ["Slow", "Moderate", "Fast"]).listen().onChange(setValue)
-    gui.add(myoptions, "FishSpecies", fishes).listen().onChange(setValue);
-}
-
-function setValue() {
-    generateFishTank()
-}
-
-function setPreset(value) {
-
-    myoptions.SwimSpeed = "Moderate"
-    switch (value) {
-        case "Ocean Mix":
-            myoptions.NumFishGroups = "20"
-            myoptions.SingleFishOnly = false
-            myoptions.MaxPerSchool = "7"
-            myoptions.ColorChanging = true
-            myoptions.PercentSchools = "25"
-            myoptions.FishSpecies = "🐟 🐠 🐡"
-            setGUI("FishSpecies", "🐟 🐠 🐡")
-            setGUI("ColorChanging", true)
-            setGUI("SingleFishOnly", false)
-            break
-        case "75 Lone Fish":
-            myoptions.NumFishGroups = "75"
-            myoptions.SingleFishOnly = true
-            myoptions.ColorChanging = false
-            myoptions.FishSpecies = "👸 👸 👸"
-            setGUI("FishSpecies", " 👸 👸")
-            setGUI("SingleFishOnly", true)
-            setGUI("ColorChanging", false)
-            break
-        case "Tropical Seas":
-            myoptions.NumFishGroups = "100"
-            myoptions.SingleFishOnly = true
-            myoptions.ColorChanging = true
-            myoptions.SwimSpeed = "Slow"
-            myoptions.FishSpecies = ""
-            setGUI("FishSpecies", "")
-            setGUI("SingleFishOnly", true)
-            setGUI("ColorChanging", true)
-            break
-        case "Schools":
-            myoptions.NumFishGroups = "10"
-            myoptions.SingleFishOnly = false
-            myoptions.MaxPerSchool = "10"
-            myoptions.ColorChanging = false
-            myoptions.PercentSchools = "100"
-            myoptions.FishSpecies = "👸 👸 👸"
-            setGUI("FishSpecies", "👸 👸 👸")
-            setGUI("SingleFishOnly", false)
-            setGUI("ColorChanging", false)
-            break
-        case "Coral Reef":
-            myoptions.NumFishGroups = "100"
-            myoptions.SingleFishOnly = false
-            myoptions.MaxPerSchool = "24"
-            myoptions.ColorChanging = true
-            myoptions.PercentSchools = "25"
-            myoptions.SwimSpeed = "Slow"
-            myoptions.FishSpecies = "👸 👸 👸"
-            setGUI("FishSpecies", "👸 👸 👸")
-            setGUI("SingleFishOnly", false)
-            setGUI("ColorChanging", true)
-            break
-        case "Salmon Run":
-            myoptions.NumFishGroups = "100"
-            myoptions.SingleFishOnly = true
-            myoptions.ColorChanging = false
-            myoptions.SwimSpeed = "Fast"
-            myoptions.FishSpecies = ""
-            setGUI("FishSpecies", "")
-            setGUI("SingleFishOnly", true)
-            setGUI("ColorChanging", false)
-            break
-        case "Deep Water":
-            myoptions.NumFishGroups = "50"
-            myoptions.SingleFishOnly = true
-            myoptions.ColorChanging = false
-            myoptions.FishSpecies = "👸 👸 👸 👸"
-            setGUI("FishSpecies", "👸 👸 👸 👸")
-            setGUI("SingleFishOnly", true)
-            setGUI("ColorChanging", false)
-            break
+        });
+        myoptions.SingleFishOnly = true
+        myoptions.ColorChanging = false
+        myoptions.FishSpecies = "👸 👸 👸 👸"
+        setGUI("FishSpecies", "👸 👸 👸 👸")
+        setGUI("SingleFishOnly", true)
+        setGUI("ColorChanging", false)
+        break
     }
     generateFishTank()
 }
@@ -300,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const username = document.getElementById('username').value.trim();
         const password = document.getElementById('password').value.trim();
         // Simple login: username = asma, password = chateau
-        if (username === 'asma' && password === 'chateau') {
+        if (username === 'asma' && password === '0209') {
             window.location.href = 'land.html';
         } else {
             errorDiv.textContent = 'Identifiants incorrects. Réessayez.';

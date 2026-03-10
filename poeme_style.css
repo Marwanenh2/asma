@@ -41,10 +41,6 @@ body.poeme-bg {
     }
 }
 
---font: "Segoe UI",
-"Helvetica Neue",
-Arial,
-sans-serif;
 
 .poeme-container {
     background: rgba(255, 255, 255, 0.22);
@@ -61,7 +57,6 @@ sans-serif;
     z-index: 2;
 }
 
-margin: 0;
 
 .poeme-container h1 {
     color: #b721ff;
@@ -73,36 +68,34 @@ margin: 0;
     text-shadow: 0 2px 12px #fff7, 0 1px 1px #b721ff33;
     transition: transform 0.7s cubic-bezier(.23, 1.12, .32, 1), box-shadow 0.7s;
     /* image ronde pour la nouvelle version */
-}
 
-.poeme-img-round {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 18px;
-    box-shadow: 0 2px 24px #b721ff33, 0 0 0 4px #fff5;
-    border: 3px solid #fff;
-    background: #fff8;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    transition: transform 0.5s, box-shadow 0.5s;
-}
+    .poeme-img-round {
+        width: 120px;
+        height: 120px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 18px;
+        box-shadow: 0 2px 24px #b721ff33, 0 0 0 4px #fff5;
+        border: 3px solid #fff;
+        background: #fff8;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        transition: transform 0.5s, box-shadow 0.5s;
+    }
 
-.poeme-img-round:hover {
-    transform: scale(1.07) rotate(-2deg);
-    box-shadow: 0 8px 32px #b721ff55, 0 0 0 6px #fff8;
-}
+    .poeme-img-round:hover {
+        transform: scale(1.07) rotate(-2deg);
+        box-shadow: 0 8px 32px #b721ff55, 0 0 0 6px #fff8;
+    }
 }
 
 .poeme-img:hover {
     transform: scale(1.04) rotate(-2deg);
     box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.28), 0 1.5px 12px 0 rgba(183, 33, 255, 0.18);
 }
-}
 
-linear-gradient(150deg, var(--bg1), var(--bg2), var(--bg3));
+
 
 .poeme-text {
     font-size: 1.22em;
@@ -129,9 +122,8 @@ linear-gradient(150deg, var(--bg1), var(--bg2), var(--bg3));
         transform: none;
     }
 }
-}
 
-inset: 0;
+
 
 .btn-retour {
     display: inline-block;
@@ -150,7 +142,6 @@ inset: 0;
     outline: none;
     border: 2px solid #fff0;
 }
-}
 
 .btn-retour:hover {
     background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
@@ -160,10 +151,7 @@ inset: 0;
     transform: translateY(-2px) scale(1.06);
 }
 
-padding: 28px 18px;
-max-width: 760px;
-margin: 0 auto;
-}
+
 
 .poem-only .poem-section {
     display: block;
