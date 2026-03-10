@@ -1,57 +1,119 @@
-﻿/* --- Stylish theme for the poem page --- */
+﻿/* Image du château dans la page poème */
+.poeme-img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 16px rgba(106, 17, 203, 0.18);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Stylish theme for the poem page --- */
 :root {
     --bg1: #12002b;
     --bg2: #3b0066;
     --bg3: #ff77ff;
-    --text: #f4f1ff;
-    --accent: #ffadff;
-    --card: rgba(255, 255, 255, 0.18);
-    --border: rgba(255, 255, 255, 0.3);
-    --shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
-    --radius: 24px;
-    --font: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+
 }
 
-* {
-    box-sizing: border-box;
-}
-
-html,
-body {
-    height: 100%;
+body.poeme-bg {
+    background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
+    min-height: 100vh;
     margin: 0;
-    font-family: var(--font);
-    color: var(--text);
-    background: radial-gradient(circle at 15% 25%, rgba(255, 255, 255, 0.17), transparent 55%),
-        radial-gradient(circle at 80% 55%, rgba(255, 85, 255, 0.18), transparent 50%),
-        linear-gradient(150deg, var(--bg1), var(--bg2), var(--bg3));
-    background-attachment: fixed;
-    overflow-x: hidden;
+    font-family: 'Georgia', serif;
 }
 
-#tank {
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: -1;
-    overflow: hidden;
+--font: "Segoe UI",
+"Helvetica Neue",
+Arial,
+sans-serif;
+
+.poeme-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    max-width: 520px;
+    margin: 60px auto;
+    padding: 48px 36px 36px 36px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.18), 0 1.5px 12px 0 rgba(183, 33, 255, 0.10);
+    text-align: center;
+    border: 1.5px solid rgba(183, 33, 255, 0.18);
 }
 
-body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url('asma.jpg') center/cover no-repeat;
-    opacity: 0.14;
-    filter: blur(4px);
-    z-index: -1;
+margin: 0;
+
+.poeme-container h1 {
+    color: #b721ff;
+    margin-bottom: 28px;
+    font-size: 2.2em;
+    font-family: 'Segoe Script', 'Brush Script MT', cursive, 'Georgia', serif;
+    letter-spacing: 1px;
+    transition: transform 0.7s cubic-bezier(.23, 1.12, .32, 1), box-shadow 0.7s;
 }
 
-/* Ensures the poem page stays readable on small screens */
-.poem-only {
-    padding: 28px 18px;
-    max-width: 760px;
-    margin: 0 auto;
+.poeme-img:hover {
+    transform: scale(1.04) rotate(-2deg);
+    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.28), 0 1.5px 12px 0 rgba(183, 33, 255, 0.18);
+}
+}
+
+linear-gradient(150deg, var(--bg1), var(--bg2), var(--bg3));
+
+.poeme-text {
+    font-size: 1.18em;
+    color: #3b0066;
+    margin-bottom: 32px;
+    line-height: 1.9;
+    font-style: italic;
+    text-shadow: 0 1px 8px #fff7, 0 1px 1px #b721ff33;
+    animation: fadein 1.5s;
+}
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+}
+
+inset: 0;
+
+.btn-retour {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 12px 32px;
+    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.13em;
+    font-weight: bold;
+    text-decoration: none;
+    box-shadow: 0 2px 12px #b721ff33;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+}
+
+.btn-retour:hover {
+    background: linear-gradient(90deg, #6a11cb 0%, #b721ff 100%);
+    color: #fff;
+    box-shadow: 0 4px 24px #b721ff55;
+    transform: translateY(-2px) scale(1.04);
+}
+
+padding: 28px 18px;
+max-width: 760px;
+margin: 0 auto;
 }
 
 .poem-only .poem-section {

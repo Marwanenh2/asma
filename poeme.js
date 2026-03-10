@@ -1,3 +1,14 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Animation simple sur le texte du poème
+    const poemeText = document.querySelector('.poeme-text');
+    if (poemeText) {
+        poemeText.style.opacity = 0;
+        setTimeout(() => {
+            poemeText.style.transition = 'opacity 1.5s';
+            poemeText.style.opacity = 1;
+        }, 300);
+    }
+});
 (() => {
     const STORAGE_KEY = 'poemeVisitHistory';
     const MAX_ENTRIES = 20;

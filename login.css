@@ -1,52 +1,93 @@
 /* General body styling */
 body {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%);
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
+    font-family: 'Segoe UI', Arial, sans-serif;
     margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
+    min-height: 100vh;
+}
 }
 
-/* Tank and fish settings */
-#tank {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
+overflow: hidden;
 
-.school {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-}
-
-.fish {
-    position: absolute;
-}
-
-/* Login form styling */
-#login {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+.login-container {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    max-width: 380px;
+    margin: 80px auto;
+    padding: 48px 36px 36px 36px;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.18), 0 1.5px 12px 0 rgba(183, 33, 255, 0.10);
     text-align: center;
+    border: 1.5px solid rgba(183, 33, 255, 0.18);
+}
+}
+
+.login-container h1 {
+    color: #b721ff;
+    margin-bottom: 28px;
+    font-family: 'Segoe Script', 'Brush Script MT', cursive, 'Georgia', serif;
+    letter-spacing: 1px;
+}
+
+width: 100%;
+
+#loginForm input {
     width: 90%;
-    max-width: 320px;
-    /* Suitable for mobile */
-    position: relative;
-    /* Removed absolute positioning */
-    margin: auto;
-    border: 2px solid #ffd700;
+    padding: 13px;
+    margin: 12px 0;
+    border: 1.5px solid #b721ff44;
+    border-radius: 12px;
+    font-size: 1.07em;
+    background: #f7f7faee;
+    box-shadow: 0 1px 6px #b721ff11;
+    transition: border 0.2s, box-shadow 0.2s;
+}
+
+#loginForm input:focus {
+    border: 1.5px solid #b721ff;
+    outline: none;
+    box-shadow: 0 2px 12px #b721ff33;
+}
+
+position: absolute;
+
+#loginForm button {
+    width: 100%;
+    padding: 13px;
+    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.13em;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 14px;
+    box-shadow: 0 2px 12px #b721ff33;
+    letter-spacing: 0.5px;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+}
+
+background: rgba(255, 255, 255, 0.1);
+
+#loginForm button:hover {
+    background: linear-gradient(90deg, #6a11cb 0%, #b721ff 100%);
+    box-shadow: 0 4px 24px #b721ff55;
+    transform: translateY(-2px) scale(1.04);
+}
+
+text-align: center;
+
+.error-message {
+    color: #d32f2f;
+    margin-top: 12px;
+    min-height: 20px;
+    font-size: 0.98em;
+}
+
+/* Removed absolute positioning */
+margin: auto;
+border: 2px solid #ffd700;
 }
 
 #login h2 {
