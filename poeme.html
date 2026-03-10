@@ -6,99 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poème du Château</title>
     <link rel="stylesheet" href="poeme_style.css">
-<<<<<<< HEAD
-=======
-    <style>body{visibility:hidden;}</style>
+    <style>
+        body {
+            visibility: hidden;
+        }
+    </style>
     <script>
         if (localStorage.getItem('asma_logged_in') !== 'true') {
-            window.location.href = 'index.html';
+            window.location.href = './index.html';
         } else {
             document.addEventListener('DOMContentLoaded', () => {
                 document.body.style.visibility = 'visible';
             });
         }
     </script>
->>>>>>> parent of 9a8ccff (derniere connexion)
 </head>
 
 <body class="poeme-bg">
-
-<<<<<<< HEAD
-    </p>
-    </div>
-    </div>
-=======
-                <div class="visit-info" aria-live="polite"></div>
-            </div>
-        </section>
+    <main style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:90vh;">
+        <img src="asma.jpg" alt="Asma"
+            style="width:120px;height:120px;object-fit:cover;border-radius:50%;box-shadow:0 2px 24px #b721ff33,0 0 0 4px #fff5;border:3px solid #fff;background:#fff8;margin-bottom:28px;">
+        <div
+            style="background:rgba(255,255,255,0.13);border-radius:22px;box-shadow:0 8px 32px 0 rgba(106,17,203,0.18);padding:28px 18px 32px 18px;max-width:370px;width:100%;text-align:center;">
+            <h1 style="color:#b721ff;font-size:1.3em;margin-bottom:18px;">Poème pour Asma</h1>
+            <p style="color:#3b0066;font-size:1.08em;line-height:2;">
+                Tu es si proche de moi,<br>
+                et pourtant<br>
+                je te sens loin.<br>
+                <br>
+                Je passe plus de temps<br>
+                à penser à toi<br>
+                qu’à parler avec toi.<br>
+                <br>
+                La manière<br>
+                dont tu posais les yeux sur moi<br>
+                ne me laissait pas indifférent.<br>
+                <br>
+                Je ne voyais pas ces instants avant,<br>
+                et aujourd’hui<br>
+                leur absence me manque.<br>
+                <br>
+                Mais aujourd’hui,<br>
+                une lueur d’espoir traverse mon cœur<br>
+                et me rappelle<br>
+                que je ne peux pas te laisser partir.
+            </p>
+            <a href="./land.html" class="btn-retour" style="margin-top:18px;display:inline-block;">Retour</a>
+        </div>
     </main>
+    <style>
+        @media (max-width:480px) {
+            main {
+                padding: 32px 0;
+            }
 
-    <script>
-        async function updateLastLogin() {
-            try {
-                const res = await fetch('/api/last-login', { cache: 'no-store' });
-                if (!res.ok) return;
-                const data = await res.json();
-                const lastLogin = data.lastLogin;
-                if (!lastLogin) return;
-                const dt = new Date(lastLogin);
-                const formatted = dt.toLocaleString(undefined, {
-                    weekday: 'short',
-                    year: 'numeric',
-                    month: 'short',
-                    day: '2-digit',
-                    hour: '2-digit',
-                    minute: '2-digit'
-                });
-                const el = document.getElementById('last-login');
-                if (el) {
-                    el.textContent = `Dernière connexion : ${formatted}`;
-                }
-            } catch {
-                // ignore
+            img[alt='Asma'] {
+                width: 90px !important;
+                height: 90px !important;
+            }
+
+            .btn-retour {
+                font-size: 1em !important;
+                padding: 13px 18px !important;
+            }
+
+            div[style*='background:rgba(255,255,255,0.13)'] {
+                max-width: 98vw;
+                padding: 18px 4vw 24px 4vw;
             }
         }
-        document.addEventListener('DOMContentLoaded', updateLastLogin);
-    </script>
->>>>>>> parent of 9a8ccff (derniere connexion)
-    <script src="poeme.js"></script>
+    </style>
 </body>
-
-
-<div class="poeme-container">
-    <div class="poeme-header">
-        <img src="asma.jpg" alt="Asma" class="poeme-img-round">
-        <h1>Poème pour Asma</h1>
-    </div>
-    <div class="poeme-text" style="font-family: 'Segoe UI', Arial, sans-serif; font-size: 1.25em; color: #2d004d;">
-        <p>
-            Tu es si proche de moi,<br>
-            et pourtant<br>
-            je te sens loin.<br>
-            <br>
-            Je passe plus de temps<br>
-            à penser à toi<br>
-            qu’à parler avec toi.<br>
-            <br>
-            La manière<br>
-            dont tu posais les yeux sur moi<br>
-            ne me laissait pas indifférent.<br>
-            <br>
-            Je ne voyais pas ces instants avant,<br>
-            et aujourd’hui<br>
-            leur absence me manque.<br>
-            <br>
-            Mais aujourd’hui,<br>
-            une lueur d’espoir traverse mon cœur<br>
-            et me rappelle<br>
-            que je ne peux pas te laisser partir.
-        </p>
-    </div>
-    <a href="land.html" class="btn-retour">Retour</a>
-</div>
-<script src="poeme.js"></script>
-</body>
-
-</html>
 
 </html>

@@ -1,21 +1,8 @@
-﻿/* Image du château dans la page poème */
-.poeme-img {
-    width: 100%;
-    max-width: 350px;
-    border-radius: 14px;
-    margin-bottom: 22px;
-    box-shadow: 0 2px 16px rgba(106, 17, 203, 0.18);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* --- Stylish theme for the poem page --- */
+﻿/* --- Violet/bleu theme complet pour poème et château --- */
 :root {
     --bg1: #12002b;
     --bg2: #3b0066;
-    --bg3: #ff77ff;
-
+    --bg3: #b721ff;
 }
 
 body.poeme-bg {
@@ -24,183 +11,26 @@ body.poeme-bg {
     animation: bgmove 12s ease-in-out infinite;
     min-height: 100vh;
     margin: 0;
-    font-family: 'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive, 'Georgia', serif;
-
-    @keyframes bgmove {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
+    font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-
-.poeme-container {
-    background: rgba(255, 255, 255, 0.22);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    max-width: 420px;
-    margin: 70px auto 40px auto;
-    padding: 38px 28px 32px 28px;
-    border-radius: 32px;
-    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.18), 0 1.5px 12px 0 rgba(183, 33, 255, 0.10), 0 0 0 4px #fff2;
-    text-align: center;
-    border: 1.5px solid rgba(183, 33, 255, 0.13);
-    position: relative;
-    z-index: 2;
-}
-
-
-.poeme-container h1 {
-    color: #b721ff;
-    margin-bottom: 18px;
-    font-size: 2.1em;
-    font-family: 'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive, 'Georgia', serif;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-    text-shadow: 0 2px 12px #fff7, 0 1px 1px #b721ff33;
-    transition: transform 0.7s cubic-bezier(.23, 1.12, .32, 1), box-shadow 0.7s;
-    /* image ronde pour la nouvelle version */
-
-    .poeme-img-round {
-        width: 120px;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 50%;
-        margin-bottom: 18px;
-        box-shadow: 0 2px 24px #b721ff33, 0 0 0 4px #fff5;
-        border: 3px solid #fff;
-        background: #fff8;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        transition: transform 0.5s, box-shadow 0.5s;
+@keyframes bgmove {
+    0% {
+        background-position: 0% 50%;
     }
 
-    .poeme-img-round:hover {
-        transform: scale(1.07) rotate(-2deg);
-        box-shadow: 0 8px 32px #b721ff55, 0 0 0 6px #fff8;
-    }
-}
-
-.poeme-img:hover {
-    transform: scale(1.04) rotate(-2deg);
-    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.28), 0 1.5px 12px 0 rgba(183, 33, 255, 0.18);
-}
-
-
-
-.poeme-text {
-    font-size: 1.22em;
-    color: #3b0066;
-    margin-bottom: 32px;
-    line-height: 2.1;
-    font-family: 'Dancing Script', 'Segoe Script', 'Brush Script MT', cursive, 'Georgia', serif;
-    font-style: normal;
-    text-shadow: 0 1px 8px #fff7, 0 1px 1px #b721ff33;
-    animation: fadein 1.5s;
-    background: none;
-    border-radius: 0;
-    padding: 0 6px;
-}
-
-@keyframes fadein {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+    50% {
+        background-position: 100% 50%;
     }
 
-    to {
-        opacity: 1;
-        transform: none;
+    100% {
+        background-position: 0% 50%;
     }
-}
-
-
-
-.btn-retour {
-    display: inline-block;
-    margin-top: 18px;
-    padding: 13px 38px;
-    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
-    color: #fff;
-    border: none;
-    border-radius: 22px;
-    font-size: 1.18em;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 2px 18px #b721ff44, 0 0 0 #fff0;
-    letter-spacing: 0.7px;
-    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-    outline: none;
-    border: 2px solid #fff0;
-}
-
-.btn-retour:hover {
-    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
-    color: #fff;
-    box-shadow: 0 4px 32px #b721ff88, 0 0 8px #fff6;
-    border: 2px solid #fff;
-    transform: translateY(-2px) scale(1.06);
-}
-
-
-
-.poem-only .poem-section {
-    display: block;
-}
-
-@media only screen and (max-width: 480px) {
-    .poem-only {
-        padding: 20px 14px;
-    }
-
-    .poem-content h1 {
-        font-size: 1.9rem;
-    }
-
-    .poem-content p {
-        font-size: 1.05rem;
-    }
-}
-
-.last-login {
-    margin: 12px auto 18px;
-    max-width: 760px;
-    padding: 14px 16px;
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-    text-align: center;
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
-}
-
-.debug-banner {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 10px 14px;
-    background: rgba(0, 0, 0, 0.75);
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 700;
-    text-align: center;
-    z-index: 110;
-    font-size: 0.95rem;
 }
 
 .topbar {
     position: sticky;
-    top: 32px;
+    top: 0;
     z-index: 50;
     display: flex;
     align-items: center;
@@ -241,133 +71,76 @@ body.poeme-bg {
     transform: translateY(-1px);
 }
 
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 22px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.22);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.16), rgba(255, 133, 255, 0.18));
-    color: rgba(255, 255, 255, 0.95);
-    font-weight: 700;
-    text-decoration: none;
-    backdrop-filter: blur(14px);
-    box-shadow: 0 16px 36px rgba(0, 0, 0, 0.22);
-    transition: transform 0.2s ease, filter 0.2s ease;
-}
-
-.button:hover,
-.button:focus {
-    filter: brightness(1.05);
-    transform: translateY(-2px);
-}
-
 .nav a.active {
     background: rgba(255, 255, 255, 0.22);
     border-color: rgba(255, 255, 255, 0.28);
 }
 
-.login-panel {
-    max-width: 360px;
+.container {
+    max-width: 980px;
     margin: 0 auto;
-    padding: 32px 28px;
-    border-radius: 24px;
-    background: rgba(255, 255, 255, 0.16);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    box-shadow: 0 26px 64px rgba(0, 0, 0, 0.28);
-    backdrop-filter: blur(18px);
-    text-align: center;
+    padding: 36px 18px 60px;
 }
 
-.login-panel h2 {
-    margin: 0 0 12px;
-    font-size: 2rem;
-}
-
-.login-panel p {
-    margin: 0 0 22px;
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.input-label {
-    display: block;
-    text-align: left;
-    margin-bottom: 14px;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
-}
-
-.input-label span {
-    display: block;
-    margin-bottom: 8px;
-}
-
-.input-label input {
-    width: 100%;
-    padding: 12px 14px;
-    border-radius: 14px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    background: rgba(0, 0, 0, 0.18);
-    color: rgba(255, 255, 255, 0.92);
-    font-size: 1rem;
-    outline: none;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
-}
-
-.input-label input:focus {
-    border-color: rgba(255, 171, 255, 0.7);
-    box-shadow: 0 0 0 4px rgba(255, 171, 255, 0.2);
-}
-
-.login-foot {
-    margin-top: 16px;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.72);
-}
-
-.hero {
-    display: grid;
-    grid-template-columns: 1.05fr 0.95fr;
-    align-items: center;
-    gap: 26px;
-    padding: 56px 0 42px;
-}
-
-.hero-text {
-    max-width: 520px;
-}
-
-.hero-text h1 {
-    margin: 0 0 18px;
-    font-size: clamp(2.1rem, 5vw, 3rem);
-    line-height: 1.1;
-    letter-spacing: 0.06em;
-    text-shadow: 0 0 22px rgba(255, 255, 255, 0.35);
-}
-
-.hero-text p {
-    margin: 0 0 24px;
-    font-size: clamp(1.05rem, 2.2vw, 1.3rem);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.hero-image {
+.poem-section {
     display: flex;
-    align-items: center;
     justify-content: center;
-    border-radius: 24px;
-    overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.38);
+    align-items: center;
+    min-height: 60vh;
 }
 
-.hero-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-    filter: saturate(1.15);
+.poem-content {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(183, 33, 255, 0.18);
+    border-radius: 22px;
+    padding: 34px 28px;
+    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.18);
+    text-align: center;
+    max-width: 500px;
+}
+
+.poem-content h1 {
+    color: #b721ff;
+    margin-bottom: 18px;
+    font-size: 2.1em;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+    text-shadow: 0 2px 12px #fff7, 0 1px 1px #b721ff33;
+}
+
+.poem-content p {
+    font-size: 1.22em;
+    color: #3b0066;
+    margin-bottom: 32px;
+    line-height: 2.1;
+    font-style: normal;
+    text-shadow: 0 1px 8px #fff7, 0 1px 1px #b721ff33;
+}
+
+.btn-retour {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    font-size: 1.18em;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 18px #b721ff44, 0 0 0 #fff0;
+    letter-spacing: 0.7px;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    outline: none;
+    border: 2px solid #fff0;
+}
+
+.btn-retour:hover {
+    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
+    color: #fff;
+    box-shadow: 0 4px 32px #b721ff88, 0 0 8px #fff6;
+    border: 2px solid #fff;
+    transform: translateY(-2px) scale(1.06);
 }
 
 .footer {
@@ -379,120 +152,17 @@ body.poeme-bg {
     margin-top: 42px;
 }
 
-.container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 36px 18px 60px;
-}
-
-.content-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
-    padding: 22px;
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    backdrop-filter: blur(14px);
-}
-
-.text-section,
-.image-section {
-    flex: 1;
-    min-width: 260px;
-    border-radius: 18px;
-    padding: 24px;
-}
-
-.text-section {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.10));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-size: clamp(1.2rem, 1.7vw, 1.6rem);
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2);
-}
-
-.image-section {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-}
-
-.image-section img {
-    width: 100%;
-    max-width: 420px;
-    border-radius: 18px;
-    box-shadow: 0 22px 52px rgba(0, 0, 0, 0.35);
-    transition: transform 0.35s ease, filter 0.35s ease;
-}
-
-.image-section img:hover {
-    transform: translateY(-6px) scale(1.02);
-    filter: drop-shadow(0 0 18px rgba(255, 135, 255, 0.45));
-}
-
-.poem-section {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 28px;
-    margin-top: 34px;
-    align-items: flex-start;
-}
-
-.poem-image {
-    background: rgba(255, 255, 255, 0.10);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.28);
-}
-
-.poem-image img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.poem-content {
-    background: rgba(255, 255, 255, 0.12);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    border-radius: 22px;
-    padding: 34px 28px;
-    box-shadow: 0 28px 64px rgba(0, 0, 0, 0.28);
-}
-
-.poem-content h1 {
-    margin: 0 0 20px;
-    font-size: clamp(2rem, 4vw, 2.4rem);
-    letter-spacing: 0.04em;
-    text-shadow: 0 0 18px rgba(255, 255, 255, 0.45);
-}
-
-.poem-content p {
-    margin: 0;
-    font-size: clamp(1.05rem, 2.2vw, 1.35rem);
-    line-height: 1.65;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.visit-info {
-    margin-top: 26px;
+.last-login {
+    margin: 12px auto 18px;
+    max-width: 760px;
     padding: 14px 16px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.14);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.22);
     color: rgba(255, 255, 255, 0.9);
     font-size: 0.95rem;
     text-align: center;
-    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.16);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
 }
 
 @media only screen and (max-width: 640px) {
@@ -501,16 +171,10 @@ body.poeme-bg {
     }
 
     .poem-section {
-        grid-template-columns: 1fr;
-    }
-
-    .poem-image {
-        max-height: 340px;
-        overflow: hidden;
+        flex-direction: column;
     }
 
     .poem-content {
         padding: 22px;
     }
-
 }

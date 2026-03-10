@@ -5,14 +5,12 @@ body {
     margin: 0;
     padding: 0;
     background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
-    background: #f7f7f7;
 }
 
 body.castle-bg {
-    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
     min-height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
 }
 
 .castle-container {
@@ -27,91 +25,71 @@ body.castle-bg {
 }
 
 .castle-container h1 {
-    color: #6a11cb;
+    color: #b721ff;
     margin-bottom: 28px;
     font-size: 2.2em;
     font-family: 'Segoe Script', 'Brush Script MT', cursive, 'Georgia', serif;
     letter-spacing: 1px;
-    color: #b721ff;
+}
 
-    .castle-img {
-        width: 100%;
-        max-width: 350px;
-        border-radius: 14px;
-        margin-bottom: 22px;
-        box-shadow: 0 2px 16px rgba(106, 17, 203, 0.18);
-        transition: transform 0.7s cubic-bezier(.23, 1.12, .32, 1), box-shadow 0.7s;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-    }
+.castle-img {
+    width: 100%;
+    max-width: 350px;
+    border-radius: 14px;
+    margin-bottom: 22px;
+    box-shadow: 0 2px 16px rgba(106, 17, 203, 0.18);
+    transition: transform 0.7s cubic-bezier(.23, 1.12, .32, 1), box-shadow 0.7s;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
+.castle-img:hover {
     transform: scale(1.04) rotate(-2deg);
-    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.28),
-    0 1.5px 12px 0 rgba(183, 33, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(106, 17, 203, 0.28), 0 1.5px 12px 0 rgba(183, 33, 255, 0.18);
+}
 
-    .btn-poeme {
-        display: inline-block;
-        margin-top: 18px;
-        padding: 13px 38px;
-        background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
-        color: #fff;
-        border: none;
-        border-radius: 22px;
-        font-size: 1.18em;
-        font-weight: 600;
-        text-decoration: none;
-        box-shadow: 0 2px 18px #b721ff44, 0 0 0 #fff0;
-        letter-spacing: 0.7px;
-        transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-        margin-right: 10px;
-        outline: none;
-        border: 2px solid #fff0;
+.btn-poeme,
+.btn-logout {
+    display: inline-block;
+    margin-top: 18px;
+    padding: 13px 38px;
+    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
+    color: #fff;
+    border: none;
+    border-radius: 22px;
+    font-size: 1.18em;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 2px 18px #b721ff44, 0 0 0 #fff0;
+    letter-spacing: 0.7px;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
+    outline: none;
+    border: 2px solid #fff0;
+    margin-right: 10px;
+}
 
-        .btn-poeme:hover {
-            background: linear-gradient(90deg, #6a11cb 0%, #b721ff 100%);
-            box-shadow: 0 4px 32px #b721ff88, 0 0 8px #fff6;
-            border: 2px solid #fff;
-            transform: translateY(-2px) scale(1.06);
+.btn-poeme:hover,
+.btn-logout:hover {
+    background: linear-gradient(90deg, #6a11cb 0%, #b721ff 100%);
+    box-shadow: 0 4px 32px #b721ff88, 0 0 8px #fff6;
+    border: 2px solid #fff;
+    transform: translateY(-2px) scale(1.06);
+}
 
-            .btn-logout {
-                display: inline-block;
-                margin-top: 18px;
-                padding: 13px 38px;
-                background: linear-gradient(90deg, #6a11cb 0%, #b721ff 100%);
-                color: #fff;
-                border: none;
-                border-radius: 22px;
-                font-size: 1.18em;
-                font-weight: 600;
-                text-decoration: none;
-                box-shadow: 0 2px 18px #b721ff44, 0 0 0 #fff0;
-                letter-spacing: 0.7px;
-                transition: background 0.3s, box-shadow 0.3s, transform 0.2s;
-                outline: none;
-                border: 2px solid #fff0;
+.footer {
+    background: #222;
+    color: #fff;
+    text-align: center;
+    padding: 16px 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
 
-                .btn-logout:hover {
-                    background: linear-gradient(90deg, #b721ff 0%, #6a11cb 100%);
-                    box-shadow: 0 4px 32px #b721ff88, 0 0 8px #fff6;
-                    border: 2px solid #fff;
-                    transform: translateY(-2px) scale(1.06);
-                    box-shadow: 0 4px 24px #b721ff55;
-                    transform: translateY(-2px) scale(1.04);
-
-                    .footer {
-                        background: #222;
-                        color: #fff;
-                        text-align: center;
-                        padding: 16px 0;
-                        position: fixed;
-                        left: 0;
-                        right: 0;
-                        bottom: 0;
-                    }
-
-                    #last-connection-info {
-                        font-size: 0.95em;
-                        color: #ffd700;
-                        margin-top: 8px;
-                    }
+#last-connection-info {
+    font-size: 0.95em;
+    color: #ffd700;
+    margin-top: 8px;
+}
