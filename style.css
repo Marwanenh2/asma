@@ -4,11 +4,11 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
+    background: #b721ff;
 }
 
 body.castle-bg {
-    background: linear-gradient(135deg, #6a11cb 0%, #b721ff 100%);
+    background: #b721ff;
     min-height: 100vh;
     margin: 0;
 }
