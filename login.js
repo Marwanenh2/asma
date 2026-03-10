@@ -86,10 +86,47 @@ function isSquid(letter) {
 // Define the correct username and password
 const validUsername = 'Asma';
 const validPassword = '0209';
+<<<<<<< HEAD
 
 // Shared store for the last login across devices (uses countapi.xyz)
 const LAST_LOGIN_BASE = 'https://api.countapi.xyz';
 
+=======
+// Function to check login credentials
+function checkLogin() {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    if (username === validUsername && password === validPassword) {
+        const payload = { username, password };
+        fetch('/api/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        })
+            .then(res => res.json())
+            .then((response) => {
+                if (response.success) {
+                    localStorage.setItem('asma_logged_in', 'true');
+                    const last = response.lastLogin || response.currentLogin;
+                    if (last) {
+                        localStorage.setItem('asma_last_login', last);
+                    }
+                    window.location.href = 'land.html';
+                } else {
+                    alert(response.message || 'Invalid username or password');
+                }
+            })
+            .catch(() => {
+                alert('Impossible de se connecter au serveur.');
+            });
+    } else {
+        alert('Invalid username or password');
+    }
+}
+>>>>>>> parent of 9a8ccff (derniere connexion)
 // Add event listener to the login button
 document.getElementById('loginButton').addEventListener('click', checkLogin);
 

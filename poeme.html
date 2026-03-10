@@ -6,13 +6,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Poème du Château</title>
     <link rel="stylesheet" href="poeme_style.css">
+<<<<<<< HEAD
+=======
+    <style>body{visibility:hidden;}</style>
+    <script>
+        if (localStorage.getItem('asma_logged_in') !== 'true') {
+            window.location.href = 'index.html';
+        } else {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.style.visibility = 'visible';
+            });
+        }
+    </script>
+>>>>>>> parent of 9a8ccff (derniere connexion)
 </head>
 
 <body class="poeme-bg">
 
+<<<<<<< HEAD
     </p>
     </div>
     </div>
+=======
+                <div class="visit-info" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        async function updateLastLogin() {
+            try {
+                const res = await fetch('/api/last-login', { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                const lastLogin = data.lastLogin;
+                if (!lastLogin) return;
+                const dt = new Date(lastLogin);
+                const formatted = dt.toLocaleString(undefined, {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                const el = document.getElementById('last-login');
+                if (el) {
+                    el.textContent = `Dernière connexion : ${formatted}`;
+                }
+            } catch {
+                // ignore
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateLastLogin);
+    </script>
+>>>>>>> parent of 9a8ccff (derniere connexion)
     <script src="poeme.js"></script>
 </body>
 

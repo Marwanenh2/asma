@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>Asma</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -16,6 +17,89 @@
             <a href="login.html" class="btn-logout" style="width:220px;">Déconnexion</a>
         </div>
     </div>
+=======
+    <title>Le Château de Raiponce</title>
+    <link rel="stylesheet" href="poeme_style.css">
+    <style>body{visibility:hidden;}</style>
+    <script>
+        if (localStorage.getItem('asma_logged_in') !== 'true') {
+            window.location.href = 'index.html';
+        } else {
+            document.addEventListener('DOMContentLoaded', () => {
+                document.body.style.visibility = 'visible';
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">Asma</div>
+        <nav class="nav" aria-label="Main navigation">
+            <a href="index.html">Connexion</a>
+            <a href="land.html" class="active">Château</a>
+            <a href="poeme.html">Poème</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div id="last-login" class="last-login" aria-live="polite"></div>
+        <section class="hero">
+            <div class="hero-text">
+                <h1>🧡 Le Château Enchanté</h1>
+                <p>Découvrez les légendes de la tour dorée de Raiponce et plongez dans la magie.</p>
+                <a class="button" href="poeme.html">Lire le Poème</a>
+            </div>
+            <div class="hero-image">
+                <img src="asma.jpg" alt="Asma Raiponce">
+            </div>
+        </section>
+
+
+        <section class="content-wrapper">
+            <div class="text-section">
+                <strong>Explorez la tour</strong><br>
+                Cliquez sur le bouton pour traverser la porte enchantée et lire la lettre dédiée à Asma.
+            </div>
+            <div class="image-section">
+                <img src="asma.jpg" alt="Asma Raiponce">
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2026 Asma – Un voyage magique vous attend.</p>
+    </footer>
+
+    <script>
+        async function updateLastLogin() {
+            try {
+                const res = await fetch('/api/last-login', { cache: 'no-store' });
+                if (!res.ok) return;
+                const data = await res.json();
+                const lastLogin = data.lastLogin;
+                if (!lastLogin) return;
+                const dt = new Date(lastLogin);
+                const formatted = dt.toLocaleString(undefined, {
+                    weekday: 'short',
+                    year: 'numeric',
+                    month: 'short',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+                const el = document.getElementById('last-login');
+                if (el) {
+                    el.textContent = `Dernière connexion : ${formatted}`;
+                }
+            } catch {
+                // ignore
+            }
+        }
+        document.addEventListener('DOMContentLoaded', updateLastLogin);
+    </script>
+
+>>>>>>> parent of 9a8ccff (derniere connexion)
 </body>
 
 </html>
